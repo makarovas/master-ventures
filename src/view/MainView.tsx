@@ -1,41 +1,50 @@
-import React, { FC } from "react";
+import React, { FC, ReactNode } from "react";
 
+import { getFC, MainViewProps } from "containers/types";
 import { Category } from "components/Category";
 import { SubmitButton } from "components/Buttons";
 import { BaseModal, ModalBody, ModalHeader } from "components/Modals";
 import { NomineeCard } from "components/NomineeCard";
 import { Head } from "components/Head";
-
-import { useMain } from "hooks/useMain";
 import { SELECTION_STATUS } from "utils/constants/statuses";
 
 import styles from "../../styles/Main.module.css";
 
-const MainView: FC = () => {
-  const controller = useMain();
-
+const MainView: getFC<MainViewProps> = ({
+  ballots,
+  ballotsError,
+  selectedNomineeData,
+  isLoadingBallot,
+  hasBallots,
+  hasSelectedNominees,
+  isModalOpen,
+  onSelectNomineeCategory,
+  onSubmitVote,
+  onCloseModal,
+  children,
+}) => {
   return (
-    <>
+    <div>
       <Head />
       <main>
         <h2 className={styles.pageTitle}>AWARDS 2021</h2>
         <div className={styles.categoriesContainer}>
-          {controller.isLoadingBallot ? (
+          {isLoadingBallot ? (
             <div className={styles.textCenter}>Loading Ballots...</div>
-          ) : controller.ballotsError ? (
+          ) : ballotsError ? (
             <div className={styles.textCenter}>
-              An Error: {JSON.stringify(controller.ballotsError)}
+              An Error: {JSON.stringify(ballotsError)}
             </div>
-          ) : controller.hasBallots ? (
-            controller.ballots.map((ballot) => (
+          ) : hasBallots ? (
+            ballots.map((ballot) => (
               <Category
                 key={ballot.id}
                 ballot={ballot}
-                onSelectNominee={controller.onSelectNomineeCategory(
+                onSelectNominee={onSelectNomineeCategory(
                   ballot.id,
                   ballot.title
                 )}
-                selectedNomineeCategory={controller.selectedNomineeData.find(
+                selectedNomineeCategory={selectedNomineeData.find(
                   (item) => item.categoryId === ballot.id
                 )}
               />
@@ -45,27 +54,24 @@ const MainView: FC = () => {
           )}
         </div>
         <SubmitButton
-          disabled={!controller.hasSelectedNominees}
+          disabled={!hasSelectedNominees}
           title={
-            controller.hasSelectedNominees
+            hasSelectedNominees
               ? "Click to submit your vote"
               : "Please select at least one nominee"
           }
-          onClick={controller.onSubmitVote}
+          onClick={onSubmitVote}
         >
-          {controller.hasSelectedNominees
+          {hasSelectedNominees
             ? SELECTION_STATUS.SUBMIT_BALLOT
             : SELECTION_STATUS.NO_SELECTION}
         </SubmitButton>
-        <BaseModal
-          isOpen={controller.isModalOpen}
-          onDismiss={controller.onCloseModal}
-        >
+        <BaseModal isOpen={isModalOpen} onDismiss={onCloseModal}>
           <ModalHeader modalTitle="Voting Successful!" />
           <ModalBody>
             <div>
               <h3 className={styles.yourVoteTitle}>Your Votes</h3>
-              {controller.selectedNomineeData.map((item) => (
+              {selectedNomineeData.map((item) => (
                 <div key={item.categoryId}>
                   <h4 className={styles.categoryTitle}>
                     In {item.categoryTitle}
@@ -77,7 +83,7 @@ const MainView: FC = () => {
           </ModalBody>
         </BaseModal>
       </main>
-    </>
+    </div>
   );
 };
 
