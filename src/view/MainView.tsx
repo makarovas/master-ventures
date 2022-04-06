@@ -1,6 +1,6 @@
 import React, { FC, ReactNode } from "react";
 
-import { getFC, MainViewProps } from "containers/types";
+import { getFCProps, MainViewProps } from "containers/types";
 import { Category } from "components/Category";
 import { SubmitButton } from "components/Buttons";
 import { BaseModal, ModalBody, ModalHeader } from "components/Modals";
@@ -10,7 +10,7 @@ import { SELECTION_STATUS } from "utils/constants/statuses";
 
 import styles from "../../styles/Main.module.css";
 
-const MainView: getFC<MainViewProps> = ({
+const MainView: getFCProps<MainViewProps> = ({
   ballots,
   ballotsError,
   selectedNomineeData,
