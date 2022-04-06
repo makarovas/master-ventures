@@ -1,5 +1,5 @@
 export type BaseModalProps = {
-  isOpen: boolean;
+  isOpened: boolean;
   onDismiss?: () => void;
   children?: React.ReactNode;
 };

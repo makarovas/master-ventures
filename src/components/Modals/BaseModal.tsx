@@ -5,10 +5,10 @@ import { BaseModalProps } from "./types";
 
 import styles from "../../../styles/Modals.module.css";
 
-const BaseModal: FC<BaseModalProps> = ({ isOpen, onDismiss, children }) => {
-  useModal({ isOpen });
+const BaseModal: FC<BaseModalProps> = ({ isOpened, onDismiss, children }) => {
+  useModal({ isOpened });
 
-  return isOpen ? (
+  return isOpened ? (
     <div className={styles.baseModalWrapper}>
       <div className={styles.baseModalContainer}>
         {!!onDismiss && (
