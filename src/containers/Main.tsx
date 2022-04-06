@@ -15,7 +15,7 @@ type MainProps = {
   ) => (nominee: NomineeType) => void;
   onSubmitVote: () => void;
 };
-const Main = () => {
+const Main: FC = () => {
   const controller = useMain();
   return <MainView {...controller} />;
 };

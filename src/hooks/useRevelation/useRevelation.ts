@@ -1,8 +1,5 @@
 import { useState } from "react";
-
-type UseRevelationProps = {
-  isOpened?: boolean;
-};
+import { UseRevelationProps } from "./types";
 
 const useRevelation = (props: UseRevelationProps) => {
   const [isOpen, setIsOpen] = useState(props.isOpened || false);

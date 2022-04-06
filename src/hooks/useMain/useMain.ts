@@ -1,13 +1,8 @@
 import { useEffect, useState } from "react";
 import { useFetchBallots } from "hooks/useFetchBallots";
 import { useRevelation } from "hooks/useRevelation";
+import { SelectedNomineeType } from "./types";
 import { NomineeType } from "hooks/useFetchBallots/types";
-
-export type SelectedNomineeType = {
-  categoryId: string;
-  categoryTitle: string;
-  nominee: NomineeType;
-};
 
 const useMain = () => {
   const [selectedNomineeData, setSelectedNomineeData] = useState<

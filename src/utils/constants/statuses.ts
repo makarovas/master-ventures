@@ -15,3 +15,8 @@ export enum SELECTION_STATUS {
   SUBMIT_BALLOT = "Submit Ballot",
   NO_SELECTION = "No Selection",
 }
+
+export enum SHOWN_CONDITION_STATUS {
+  HIDDEN = "hidden",
+  AUTO = "auto",
+}

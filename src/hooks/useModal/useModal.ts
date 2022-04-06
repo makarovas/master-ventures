@@ -1,17 +1,15 @@
 import { useEffect, useRef } from "react";
+import { SHOWN_CONDITION_STATUS } from "utils/constants/statuses";
+import { UseModalProps } from "./types";
 
-type UseModalProps = {
-  isOpen?: boolean;
-};
-
-const useModal = (props: UseModalProps) => {
+const useModal = ({ isOpened }: UseModalProps) => {
   const documentRef = useRef<HTMLBodyElement>();
-
   if (documentRef.current) {
-    if (props.isOpen) {
-      documentRef.current.style.overflow = "hidden";
+    let overflow = documentRef.current.style.overflow;
+    if (isOpened) {
+      overflow = SHOWN_CONDITION_STATUS.HIDDEN;
     } else {
-      documentRef.current.style.overflow = "auto";
+      overflow = SHOWN_CONDITION_STATUS.AUTO;
     }
   }
 

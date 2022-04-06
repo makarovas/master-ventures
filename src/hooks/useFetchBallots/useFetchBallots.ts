@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react";
 import { ERRORS_STATUS, BALLOTS_URL } from "utils/constants";
-import { BallotsType, BallotsItemType } from "./types";
 import { FETCH_DATA_STATUSES } from "utils/constants/statuses";
+import { BallotsType, BallotsItemType } from "./types";
 
 const useFetchBallots = () => {
   const [ballots, setBallots] = useState<BallotsItemType[]>([]);
