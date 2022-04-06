@@ -1,12 +1,9 @@
 import React, { FC } from "react";
+import { BaseModalHeaderProps } from "./types";
 
 import styles from "../../../styles/Modals.module.css";
 
-type BaseModalProps = {
-  modalTitle?: string;
-};
-
-const ModalHeader: FC<BaseModalProps> = ({ modalTitle, children }) => {
+const ModalHeader: FC<BaseModalHeaderProps> = ({ modalTitle, children }) => {
   return (
     <div className={styles.modalHeader}>
       {modalTitle && (

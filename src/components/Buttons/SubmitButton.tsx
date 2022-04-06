@@ -1,8 +1,7 @@
-import React, { ButtonHTMLAttributes, FC } from "react";
+import React, { FC } from "react";
 
 import styles from "../../../styles/Buttons.module.css";
-
-type SubmitButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
+import { SubmitButtonProps } from "./types";
 
 const SubmitButton: FC<SubmitButtonProps> = (props) => (
   <div className={styles.submitButtonContainer}>

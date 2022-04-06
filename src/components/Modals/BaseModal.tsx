@@ -1,13 +1,9 @@
 import React, { FC } from "react";
 
-import styles from "../../../styles/Modals.module.css";
 import { useModal } from "hooks/useModal";
+import { BaseModalProps } from "./types";
 
-type BaseModalProps = {
-  isOpen: boolean;
-  onDismiss?: () => void;
-  children?: React.ReactNode;
-};
+import styles from "../../../styles/Modals.module.css";
 
 const BaseModal: FC<BaseModalProps> = ({ isOpen, onDismiss, children }) => {
   useModal({ isOpen });

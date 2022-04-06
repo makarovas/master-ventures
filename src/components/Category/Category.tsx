@@ -1,15 +1,8 @@
 import React, { FC } from "react";
-import { BallotsItemType, NomineeType } from "hooks/useFetchBallots/types";
-import { SelectedNomineeType } from "hooks/useMain/useMain";
 import { NomineeCard } from "components/NomineeCard";
 
 import styles from "../../../styles/Main.module.css";
-
-type CategoryProps = {
-  ballot: BallotsItemType;
-  onSelectNominee: (nominee: NomineeType) => void;
-  selectedNomineeCategory?: SelectedNomineeType;
-};
+import { CategoryProps } from "./types";
 
 const Category: FC<CategoryProps> = ({
   ballot,
