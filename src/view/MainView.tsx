@@ -1,12 +1,13 @@
 import React, { FC, ReactNode } from "react";
 
-import { getFCProps, MainViewProps } from "containers/types";
+import { MainViewProps } from "containers/types";
 import { Category } from "components/Category";
 import { SubmitButton } from "components/Buttons";
 import { BaseModal, ModalBody, ModalHeader } from "components/Modals";
 import { NomineeCard } from "components/NomineeCard";
 import { Head } from "components/Head";
 import { SELECTION_STATUS } from "utils/constants/statuses";
+import { getFCProps } from "utils/typesGetters";
 
 import styles from "../../styles/Main.module.css";
 
