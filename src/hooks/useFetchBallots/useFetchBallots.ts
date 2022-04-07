@@ -20,14 +20,14 @@ const useFetchBallots = () => {
       setBallots(data?.items || []);
 
       return {
-        message: FETCH_DATA_STATUSES.Success,
+        message: FETCH_DATA_STATUSES.SUCCESS,
         data,
       };
     } catch (error) {
       setError(error as any);
 
       return {
-        message: FETCH_DATA_STATUSES.Error,
+        message: FETCH_DATA_STATUSES.ERROR,
         error,
       };
     } finally {

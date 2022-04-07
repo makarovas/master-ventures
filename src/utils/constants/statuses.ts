@@ -1,14 +1,14 @@
 export enum FETCH_DATA_STATUSES {
-  Success = "Success",
-  IsLoading = "IsLoading",
-  Error = "Error",
+  SUCCESS = "Success",
+  IS_LOADING = "IsLoading",
+  ERROR = "Error",
 }
 
 export enum ERRORS_STATUS {
-  BadRequest = 400,
-  NotFound = 404,
-  InternalServerError = 500,
-  Forbidden = 403,
+  BAD_REQUEST = 400,
+  NOT_FOUND = 404,
+  INTERNAL_SERVER_ERROR = 500,
+  FORBIDDEN = 403,
 }
 
 export enum SELECTION_STATUS {
