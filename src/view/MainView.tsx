@@ -1,4 +1,4 @@
-import React, { FC, ReactNode } from "react";
+import React from "react";
 
 import { MainViewProps } from "containers/types";
 import { Category } from "components/Category";
