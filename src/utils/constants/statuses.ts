@@ -20,3 +20,8 @@ export enum SHOWN_CONDITION_STATUS {
   HIDDEN = "hidden",
   AUTO = "auto",
 }
+
+export enum SHOW_EVENT_MESSAGE {
+  CLICK = "Click to submit your vote",
+  SELECT = "Please select at least one nominee",
+}

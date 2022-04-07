@@ -6,7 +6,7 @@ import { SubmitButton } from "components/Buttons";
 import { BaseModal, ModalBody, ModalHeader } from "components/Modals";
 import { NomineeCard } from "components/NomineeCard";
 import { Head } from "components/Head";
-import { SELECTION_STATUS } from "utils/constants/statuses";
+import { SELECTION_STATUS, SHOW_EVENT_MESSAGE } from "utils/constants/statuses";
 import { getFCProps } from "utils/typesGetters";
 
 import styles from "../../styles/Main.module.css";
@@ -58,8 +58,8 @@ const MainView: getFCProps<MainViewProps> = ({
           disabled={!hasSelectedNominees}
           title={
             hasSelectedNominees
-              ? "Click to submit your vote"
-              : "Please select at least one nominee"
+              ? SHOW_EVENT_MESSAGE.CLICK
+              : SHOW_EVENT_MESSAGE.SELECT
           }
           onClick={onSubmitVote}
         >
@@ -67,7 +67,7 @@ const MainView: getFCProps<MainViewProps> = ({
             ? SELECTION_STATUS.SUBMIT_BALLOT
             : SELECTION_STATUS.NO_SELECTION}
         </SubmitButton>
-        <BaseModal isOpen={isModalOpen} onDismiss={onCloseModal}>
+        <BaseModal isOpened={isModalOpen} onDismiss={onCloseModal}>
           <ModalHeader modalTitle="Voting Successful!" />
           <ModalBody>
             <div>
